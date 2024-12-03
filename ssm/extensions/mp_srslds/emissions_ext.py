@@ -363,7 +363,7 @@ class PoissonCompoundEmissions(_PoissonEmissionsMixin, _CompoundLinearEmissions)
         yhats = [self.link(np.clip(d, .1, np.inf)) for d in datas]
         self._initialize_with_pca(yhats, inputs=inputs, masks=masks, tags=tags)
 
-    def neg_hessian_log_emissions_prob(self, data, input, mask, tag, x):
+    def neg_hessian_log_emissions_prob(self, data, input, mask, tag, x, Ez):
         """
         d/dx log p(y | x) = d/dx [y * (Cx + Fu + d) - exp(Cx + Fu + d)
                           = y * C - lmbda * C
